@@ -17,6 +17,10 @@
 }
 
 
+/* =========================
+        BODY
+========================= */
+
 body {
     min-height: 100vh;
 
@@ -59,6 +63,9 @@ body {
 }
 
 
+/* =========================
+        MAIN APP
+========================= */
 
 .app {
     position: relative;
@@ -87,6 +94,11 @@ body {
     animation:
         appAppear 0.8s ease;
 }
+
+
+/* =========================
+        APP GLOW
+========================= */
 
 .app::before {
     content: "";
@@ -144,6 +156,12 @@ body {
 
     pointer-events: none;
 }
+
+
+/* =========================
+        PARTICLES
+========================= */
+
 .background {
     position: fixed;
 
@@ -227,6 +245,11 @@ body {
     animation-delay: 6s;
 }
 
+
+/* =========================
+        HEADING
+========================= */
+
 h1 {
     position: relative;
 
@@ -248,6 +271,12 @@ h1 {
     animation:
         titleAppear 0.8s ease;
 }
+
+
+/* =========================
+        SEARCH BAR
+========================= */
+
 .app > input {
     position: relative;
 
@@ -307,6 +336,11 @@ h1 {
         0 0 0 4px rgba(139, 92, 246, 0.18),
         0 18px 35px rgba(0, 0, 0, 0.25);
 }
+
+
+/* =========================
+        NOTE FORM
+========================= */
 
 form {
     position: relative;
@@ -444,6 +478,11 @@ form button:active {
         scale(0.96);
 }
 
+
+/* =========================
+        NOTES CONTAINER
+========================= */
+
 .notes-container {
     position: relative;
 
@@ -470,6 +509,11 @@ form button:active {
     text-align: center;
 }
 
+
+/* =========================
+        NO NOTES
+========================= */
+
 .no-notes {
     position: relative;
 
@@ -491,6 +535,11 @@ form button:active {
 
     font-weight: 500;
 }
+
+
+/* =========================
+        NOTE CARD
+========================= */
 
 .note-card {
     position: relative;
@@ -524,6 +573,9 @@ form button:active {
         height 0.35s ease;
 }
 
+
+/* TOP COLOR LINE */
+
 .note-card::before {
     content: "";
 
@@ -544,6 +596,9 @@ form button:active {
             var(--pink)
         );
 }
+
+
+/* SHINE EFFECT */
 
 .note-card::after {
     content: "";
@@ -577,6 +632,9 @@ form button:active {
     left: 150%;
 }
 
+
+/* HOVER CARD */
+
 .note-card:hover {
     transform:
         translateY(-9px)
@@ -589,6 +647,11 @@ form button:active {
 
     overflow: visible;
 }
+
+
+/* =========================
+        NOTE TITLE
+========================= */
 
 .note-card h2 {
     margin-bottom: 12px;
@@ -603,6 +666,11 @@ form button:active {
     word-break: break-word;
 }
 
+
+/* =========================
+        NOTE CONTENT
+========================= */
+
 .note-card p {
     color: #6e687d;
 
@@ -614,21 +682,33 @@ form button:active {
 
     word-break: break-word;
 
+    /*
+        Show only 4 lines
+        when card is closed
+    */
+
     display: -webkit-box;
 
     -webkit-box-orient: vertical;
+
     -webkit-line-clamp: 4;
-    line-clamp: 4;
+
     overflow: hidden;
 }
 
+
+/* FULL CONTENT ON HOVER */
+
 .note-card:hover p {
     display: block;
+
     -webkit-line-clamp: unset;
-    line-clamp: unset;
 
     overflow: visible;
 }
+
+
+/* FULL CONTENT AFTER CLICK */
 
 .note-card.expanded {
     height: auto;
@@ -642,10 +722,14 @@ form button:active {
     display: block;
 
     -webkit-line-clamp: unset;
-    line-clamp: unset;
 
     overflow: visible;
 }
+
+
+/* =========================
+        NOTE TIME
+========================= */
 
 .note-card small {
     display: block;
@@ -658,6 +742,12 @@ form button:active {
 
     letter-spacing: 0.3px;
 }
+
+
+/* =========================
+        BUTTON CONTAINER
+========================= */
+
 .note-buttons {
     display: flex;
 
@@ -668,6 +758,10 @@ form button:active {
     align-items: center;
 }
 
+
+/* =========================
+        BUTTONS
+========================= */
 
 .note-card button {
     padding:
@@ -688,6 +782,9 @@ form button:active {
     transition:
         0.25s ease;
 }
+
+
+/* EDIT */
 
 .note-card button:first-child {
     color:
@@ -712,6 +809,8 @@ form button:active {
 }
 
 
+/* DELETE */
+
 .note-card button:last-child {
     color:
         #dc2626;
@@ -734,9 +833,19 @@ form button:active {
         translateY(-2px);
 }
 
+
+/* =========================
+        SCROLLBAR
+========================= */
+
 ::-webkit-scrollbar {
     width: 0;
 }
+
+
+/* =========================
+        ANIMATIONS
+========================= */
 
 @keyframes backgroundMove {
 

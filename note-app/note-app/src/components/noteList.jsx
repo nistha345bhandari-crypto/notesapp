@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function NoteList({ notes, editNote, deleteNote }) {
+
+    const [openNote, setOpenNote] = useState(null);
 
     if (notes.length === 0) {
         return (
@@ -12,37 +16,60 @@ function NoteList({ notes, editNote, deleteNote }) {
         <div className="notes-container">
 
             {notes.map((note) => (
-                
-                <details
-                    className="note-card"
+
+                <div
+                    className={`note-card ${
+                        openNote === note.id ? "expanded" : ""
+                    }`}
                     key={note.id}
+                    onClick={() => {
+                        setOpenNote(
+                            openNote === note.id
+                                ? null
+                                : note.id
+                        );
+                    }}
                 >
 
-                    <summary>
-                        <h2>{note.title}</h2>
-                    </summary>
+                    <h2>{note.title}</h2>
 
-                    <p>{note.content}</p>
+                    <p
+                        className={
+                            openNote === note.id
+                                ? "full-content"
+                                : ""
+                        }
+                    >
+                        {note.content}
+                    </p>
 
-                    <small>{note.time}</small>
+                    <small>
+                        {note.time}
+                    </small>
 
                     <div className="note-buttons">
 
                         <button
-                            onClick={() => editNote(note)}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                editNote(note);
+                            }}
                         >
                             Edit
                         </button>
 
                         <button
-                            onClick={() => deleteNote(note.id)}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                deleteNote(note.id);
+                            }}
                         >
                             Delete
                         </button>
 
                     </div>
 
-                </details>
+                </div>
 
             ))}
 
